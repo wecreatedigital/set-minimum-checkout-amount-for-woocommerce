@@ -1,14 +1,14 @@
 <?php
 /**
- * Plugin Name: Set Minimum Order Amount for WooCommerce
+ * Plugin Name: Set Minimum Checkout Amount for WooCommerce
  * Plugin URI: https://wecreate.digital/blog/setting-a-minimum-order-amount-in-woocommerce/
- * Description: Prevent customers from completing their order by setting a minimum purchase amount.
- * Version: 1.0.0
+ * Description: Prevent customers from completing their order by setting a minimum checkout amount.
+ * Version: 1.0.1
  * Author: We Create Digital
  * Author URI: https://wecreate.digital
  * Developer: Dean Appleton-Claydon
  * Developer URI: https://dean.codes
- * Text Domain: set-minimum-order-amount-for-woocommerce
+ * Text Domain: set-minimum-purchase-amount-for-woocommerce
  *
  * WC requires at least: 3.9.0
  * WC tested up to: 4.8.0
@@ -30,15 +30,15 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
   function wecreate_woocommerce_set_minimum_order_settings( $settings ) {
 
       $settings[] = array(
-        'title' => __( 'Set minimum purchase settings', 'set-minimum-order-amount-for-woocommerce' ),
+        'title' => __( 'Set minimum purchase settings', 'set-minimum-purchase-amount-for-woocommerce' ),
         'type' => 'title',
-        'desc' => 'Prevent customers from completing their order by setting a minimum purchase amount.',
+        'desc' => 'Prevent customers from completing their order by setting a minimum checkout amount.',
         'id' => 'wecreate_minimum_order_settings',
       );
 
       $settings[] = array(
-        'title' => __( 'Minimum purchase amount', 'set-minimum-order-amount-for-woocommerce' ),
-        'desc' => __( 'Leave this field empty to allow any purchase to complete', 'set-minimum-order-amount-for-woocommerce' ),
+        'title' => __( 'Minimum checkout amount', 'set-minimum-purchase-amount-for-woocommerce' ),
+        'desc' => __( 'Leave this field empty to allow any purchase to complete', 'set-minimum-purchase-amount-for-woocommerce' ),
         'id' => 'wecreate_minimum_order_value',
         'placeholder' => '9.99',
         'type' => 'number',
@@ -46,8 +46,8 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
       );
 
       $settings[] = array(
-        'title' => __( 'Check against', 'set-minimum-order-amount-for-woocommerce' ),
-        'desc' => __( 'Minimum purchase to compare against order total or sub-total', 'set-minimum-order-amount-for-woocommerce' ),
+        'title' => __( 'Check against', 'set-minimum-purchase-amount-for-woocommerce' ),
+        'desc' => __( 'Minimum purchase to compare against order total or sub-total', 'set-minimum-purchase-amount-for-woocommerce' ),
         'id' => 'wecreate_minimum_order_use_amount',
         'type' => 'select',
         'options' => [
@@ -58,8 +58,8 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
       );
 
       $settings[] = array(
-        'title' => __( 'Checkout warning message', 'set-minimum-order-amount-for-woocommerce' ),
-        'desc' => __( 'Present a message when the sub-total in the customer\'s basket is less than the minimum purchase set above. Use the shortcode [minimum_amount] to display the minimum amount set in the above field.', 'set-minimum-order-amount-for-woocommerce' ),
+        'title' => __( 'Checkout warning message', 'set-minimum-purchase-amount-for-woocommerce' ),
+        'desc' => __( 'Present a message when the sub-total in the customer\'s basket is less than the minimum purchase set above. Use the shortcode [minimum_amount] to display the minimum amount set in the above field.', 'set-minimum-purchase-amount-for-woocommerce' ),
         'id' => 'wecreate_minimum_order_checkout_notification',
         'default' => 'Your order must be at least [minimum_amount] before you place your order',
         'placeholder' => 'Your order must be at least [minimum_amount] before you place your order',
@@ -68,16 +68,16 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
       );
 
       $settings[] = array(
-        'title' => __( 'Start date', 'set-minimum-order-amount-for-woocommerce' ),
-        'desc' => __( 'Leave the field blank to continue', 'set-minimum-order-amount-for-woocommerce' ),
+        'title' => __( 'Start date', 'set-minimum-purchase-amount-for-woocommerce' ),
+        'desc' => __( 'Leave the field blank to continue', 'set-minimum-purchase-amount-for-woocommerce' ),
         'id' => 'wecreate_minimum_order_start_date',
         'type' => 'date',
         'desc_tip' => true,
       );
 
       $settings[] = array(
-        'title' => __( 'End date', 'set-minimum-order-amount-for-woocommerce' ),
-        'desc' => __( 'Leave the field blank to continue', 'set-minimum-order-amount-for-woocommerce' ),
+        'title' => __( 'End date', 'set-minimum-purchase-amount-for-woocommerce' ),
+        'desc' => __( 'Leave the field blank to continue', 'set-minimum-purchase-amount-for-woocommerce' ),
         'id' => 'wecreate_minimum_order_end_date',
         'type' => 'date',
         'desc_tip' => true,
@@ -109,15 +109,15 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
       $compare_against = (string) get_option( 'wecreate_minimum_order_use_amount' );
       $check_against_total = (float) ($compare_against === 'subtotal') ? WC()->cart->subtotal : WC()->cart->total;
 
-      // Minimum order amount when set
+      // Minimum checkout amount when set
       if ( ! empty($minimum_order_value) && $check_against_total < $minimum_order_value ) {
 
-        // Only apply minimum order amount when start date has passed
+        // Only apply minimum checkout amount when start date has passed
         if ( ! empty($start_date) && strtotime('now') < strtotime($start_date) ) {
           return true;
         }
 
-        // Only apply minimum order amount before end date has passed
+        // Only apply minimum checkout amount before end date has passed
         if ( ! empty($end_date) && strtotime('now') > strtotime($end_date) ) {
           return true;
         }

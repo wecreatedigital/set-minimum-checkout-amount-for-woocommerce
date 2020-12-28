@@ -3,7 +3,7 @@
  * Plugin Name: Set Minimum Checkout Amount for WooCommerce
  * Plugin URI: https://wecreate.digital/blog/setting-a-minimum-order-amount-in-woocommerce/
  * Description: Prevent customers from completing their order by setting a minimum checkout amount.
- * Version: 1.0.1
+ * Version: 1.0.3
  * Author: We Create Digital
  * Author URI: https://wecreate.digital
  * Developer: Dean Appleton-Claydon

@@ -25,6 +25,9 @@ With this plugin you can:
 #### 1.0.2 2020-12-28
 - Updated naming following advice from WordPress plugin team and make description clearer
 
+#### 1.0.3 2020-12-28
+- Moved files to top level directory
+
 ## TODO
 - Add additional languages
 - Give options so the site owner so they can determine where to show customer warning when minimum order not met (PRO?)

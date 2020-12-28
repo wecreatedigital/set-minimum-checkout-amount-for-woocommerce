@@ -6,7 +6,7 @@ Tested up to: 5.6.0
 WC requires at least: 3.9.0
 WC tested up to: 4.8.0
 Requires PHP: 5.6.20
-Stable tag: 1.0.1
+Stable tag: 1.0.3
 License: GPLv3 or later License
 URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -39,3 +39,6 @@ With this plugin you can:
 
 = 1.0.2 2020-12-28 =
  * Updated naming following advice from WordPress plugin team and make description clearer
+
+= 1.0.3 2020-12-28 =
+ * Moved files to top level directory

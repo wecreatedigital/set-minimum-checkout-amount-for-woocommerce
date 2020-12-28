@@ -1,4 +1,4 @@
-=== WooCommerce Set Minimum Order Amount ===
+=== Set Minimum Order Amount for WooCommerce ===
 Contributors: machinedean
 Tags: woocommerce, ecommerce, minimum order, cart total, basket total
 Requires at least: 5.0

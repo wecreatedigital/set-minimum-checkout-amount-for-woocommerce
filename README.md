@@ -1,4 +1,4 @@
-# WooCommerce Set Minimum Order Amount
+# Set Minimum Order Amount for WooCommerce
 Prevent customers from completing their order by setting a minimum order amount. If a customer attempt to reach the checkout, they are automatically sent back to the basket.
 
 With this plugin you can:
@@ -18,6 +18,9 @@ With this plugin you can:
 
 #### 1.0 2020-12-12
 - Initial release
+
+#### 1.1 2020-12-28
+- Updated naming following advice from WordPress plugin team
 
 ## TODO
 - Add additional languages
